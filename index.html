@@ -7,12 +7,22 @@
 <meta name="description" content="קטלוג מארזים 2026 — OR Design Studio · מיתוג ומתנות לאירועים, עם הקדשה אישית">
 <meta property="og:title" content="OR Design Studio · קטלוג מארזים 2026">
 <meta property="og:description" content="מארזי מתנה ממותגים עם הקדשה אישית לכל אירוע">
-<meta property="og:image" content="img/p07_0.jpg">
-<meta name="theme-color" content="#F5F0EA">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="he_IL">
+<meta property="og:site_name" content="OR Design Studio">
+<meta property="og:url" content="https://or-design-catalog.vercel.app/">
+<meta property="og:image" content="https://or-design-catalog.vercel.app/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="OR Design Studio — קטלוג מארזים 2026">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/icon.png">
+<link rel="apple-touch-icon" href="img/icon.png">
+<meta name="theme-color" content="#2a1c13">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/marble.jpg">
+<link rel="preload" as="image" href="img/p16_0.jpg" fetchpriority="high">
 <style>
 :root{
   --ink:#3C2414;          /* חום הלוגו */
@@ -31,10 +41,10 @@
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0}
-body{color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;background:#F5F0EA;min-height:100vh;-webkit-font-smoothing:antialiased}
+body{color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;background:#F6F5F2;min-height:100vh;-webkit-font-smoothing:antialiased}
 /* שיש — שכבה קבועה (עובד גם באייפון) */
-body::before{content:"";position:fixed;inset:0;z-index:-2;background:#F5F0EA url(img/marble.jpg) center/cover no-repeat}
-body::after{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(120% 80% at 50% 0%,rgba(255,255,255,.55),transparent 60%)}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:#F6F5F2 url(img/marble.jpg) center/cover no-repeat}
+body::after{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(120% 70% at 50% 0%,rgba(255,255,255,.35),transparent 60%)}
 button{font:inherit;color:inherit;cursor:pointer}
 img{display:block;max-width:100%}
 a{color:inherit}
@@ -42,44 +52,63 @@ a{color:inherit}
 .lg svg{width:100%;height:auto;display:block}
 .en{font-family:var(--serif);direction:ltr;unicode-bidi:isolate}
 
-/* ===== Hero ===== */
-.hero{min-height:88vh;min-height:88svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 22px 30px;position:relative}
-.hero .lg{width:min(210px,56vw);color:var(--ink);animation:rise 1s cubic-bezier(.2,.7,.2,1) both}
-.hero .tag{font-size:10.5px;letter-spacing:.42em;color:var(--ink-2);margin-top:14px;font-family:var(--sans);direction:ltr;animation:rise 1s .1s both}
-.rule{display:flex;align-items:center;gap:14px;margin:34px 0 18px;color:var(--gold);animation:rise 1s .2s both}
-.rule::before,.rule::after{content:"";width:46px;height:1px;background:currentColor;opacity:.7}
-.rule span{font-family:var(--serif);font-style:italic;font-size:18px;letter-spacing:.06em}
-.hero h1{font-weight:300;font-size:clamp(40px,11vw,64px);line-height:1.02;margin:0;letter-spacing:-.02em;animation:rise 1s .3s both}
-.hero h1 b{font-weight:600;display:block}
-.hero p{max-width:30ch;color:var(--ink-2);font-size:16px;margin:16px auto 0;font-weight:300;animation:rise 1s .4s both}
-.hero .go{margin-top:34px;display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--ivory);border:0;border-radius:99px;padding:14px 26px;font-size:15px;font-weight:500;text-decoration:none;box-shadow:var(--shadow);animation:rise 1s .5s both}
-.hero .scroll{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);width:22px;height:36px;border:1.5px solid var(--gold);border-radius:20px;opacity:.7}
-.hero .scroll::after{content:"";position:absolute;left:50%;top:7px;width:3px;height:7px;border-radius:3px;background:var(--gold);transform:translateX(-50%);animation:sc 1.8s infinite}
-@keyframes sc{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
-@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-
-/* ===== Sticky header ===== */
-.bar{position:sticky;top:0;z-index:20;background:rgba(250,246,241,.72);backdrop-filter:saturate(1.2) blur(16px);-webkit-backdrop-filter:saturate(1.2) blur(16px);border-bottom:1px solid var(--line);transition:box-shadow .3s}
-.bar.stuck{box-shadow:0 8px 24px -16px rgba(60,36,20,.35)}
-.bar-top{display:flex;align-items:center;justify-content:space-between;height:70px;gap:10px}
-.bar-top .lg{width:78px;color:var(--ink);padding-top:2px}
-.icon-btn{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--glass-strong);display:grid;place-items:center;flex:none;position:relative}
-.icon-btn .n{position:absolute;top:-3px;left:-3px;background:var(--ink);color:var(--ivory);font-size:11px;font-weight:600;min-width:19px;height:19px;border-radius:99px;display:grid;place-items:center;padding:0 4px}
+/* ===== Header (שקוף על ההירו, מוצק בגלילה) ===== */
+.hdr{position:fixed;top:0;inset-inline:0;z-index:35;color:#fff;transition:background .35s,color .35s,box-shadow .35s,backdrop-filter .35s}
+.hdr.solid{background:rgba(250,249,247,.82);backdrop-filter:saturate(1.2) blur(16px);-webkit-backdrop-filter:saturate(1.2) blur(16px);color:var(--ink);box-shadow:0 1px 0 var(--line),0 10px 26px -18px rgba(60,36,20,.35)}
+.bar-top{display:flex;align-items:center;justify-content:space-between;height:calc(72px + env(safe-area-inset-top));padding-top:env(safe-area-inset-top);gap:10px}
+.bar-top .lg{width:76px;color:inherit;transition:width .35s;filter:drop-shadow(0 2px 10px rgba(0,0,0,.18))}
+.hdr:not(.solid) .bar-top .lg{width:104px}
+.hdr.solid .bar-top .lg{filter:none}
+.icon-btn{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.14);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:inherit;display:grid;place-items:center;flex:none;position:relative;transition:all .35s}
+.hdr.solid .icon-btn{border-color:var(--line);background:var(--glass-strong)}
+.icon-btn .n{position:absolute;top:-3px;left:-3px;background:var(--ink);color:var(--ivory);font-size:11px;font-weight:600;min-width:19px;height:19px;border-radius:99px;display:grid;place-items:center;padding:0 4px;border:1.5px solid #fff}
 .icon-btn .n:empty{display:none}
 .search{overflow:hidden;max-height:0;transition:max-height .3s,padding .3s}
 .search.open{max-height:70px;padding-bottom:12px}
-.search label{display:flex;align-items:center;gap:8px;background:var(--glass-strong);border:1px solid var(--line);border-radius:14px;padding:0 14px;height:46px}
+.search label{display:flex;align-items:center;gap:8px;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:0 14px;height:46px}
 .search input{flex:1;border:0;background:transparent;font:inherit;color:var(--ink);outline:none;min-width:0}
 
+/* ===== Hero — תמונה במסך מלא ===== */
+.hero{position:relative;height:100vh;height:100svh;min-height:560px;overflow:hidden;color:#fff;background:#2a1c13}
+.slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:kb 24s infinite;will-change:opacity,transform}
+.slide:nth-child(1){animation-delay:-1s}.slide:nth-child(2){animation-delay:5s}.slide:nth-child(3){animation-delay:11s}.slide:nth-child(4){animation-delay:17s}
+@keyframes kb{0%{opacity:0;transform:scale(1.12)}4%{opacity:1}25%{opacity:1}30%{opacity:0;transform:scale(1)}100%{opacity:0;transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,17,10,.55) 0%,rgba(28,17,10,.08) 26%,rgba(28,17,10,.12) 50%,rgba(28,17,10,.82) 100%)}
+.hero-in{position:absolute;inset-inline:0;bottom:0;z-index:2;padding:0 24px calc(34px + env(safe-area-inset-bottom));text-align:center}
+.hero .k{font-family:var(--serif);font-style:italic;font-size:19px;letter-spacing:.06em;color:#EBD9C3;display:inline-flex;align-items:center;gap:12px;animation:rise 1s .2s both}
+.hero .k::before,.hero .k::after{content:"";width:34px;height:1px;background:currentColor;opacity:.7}
+.hero h1{font-weight:300;font-size:clamp(44px,12.5vw,76px);line-height:.98;margin:8px 0 0;letter-spacing:-.025em;animation:rise 1s .3s both;text-shadow:0 2px 24px rgba(0,0,0,.25)}
+.hero h1 b{font-weight:600}
+.hero p{max-width:32ch;margin:14px auto 0;font-weight:300;font-size:16px;color:rgba(255,255,255,.88);animation:rise 1s .4s both}
+.hint{margin:26px auto 0;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:11px;letter-spacing:.32em;color:rgba(255,255,255,.75);animation:rise 1s .6s both;text-decoration:none}
+.hint i{width:1px;height:38px;background:linear-gradient(rgba(255,255,255,.9),rgba(255,255,255,0));animation:drip 2.2s ease-in-out infinite;transform-origin:top}
+@keyframes drip{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* ===== Intro: יתרונות + איך מזמינים ===== */
+.intro{padding-top:34px}
+.usp{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.usp div{background:var(--glass);border:1px solid rgba(255,255,255,.8);border-radius:18px;padding:14px 6px 12px;box-shadow:var(--shadow);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.usp b{display:block;font-size:22px;font-weight:600;line-height:1.1;letter-spacing:-.02em}
+.usp span{font-size:12px;color:var(--ink-2);line-height:1.3;display:block;margin-top:4px}
+.steps{margin-top:26px;text-align:center}
+.steps .en{font-size:13px;letter-spacing:.24em;color:var(--gold);text-transform:uppercase}
+.steps h2{margin:2px 0 16px;font-weight:500;font-size:24px;letter-spacing:-.01em}
+.steps ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;counter-reset:s}
+.steps li{counter-increment:s;font-size:13px;line-height:1.35;color:var(--ink-2)}
+.steps li::before{content:counter(s,decimal-leading-zero);display:block;font-family:var(--serif);font-style:italic;font-size:30px;color:var(--ink);line-height:1;margin-bottom:6px}
+
 /* ===== Collections (בהשראת ההיילייטס) ===== */
-.cols{display:flex;gap:14px;overflow-x:auto;scrollbar-width:none;padding:6px 18px 14px;margin:0 -18px;scroll-snap-type:x proximity}
+.cols-wrap{position:sticky;top:calc(72px + env(safe-area-inset-top));z-index:20;margin:26px 0 0;padding:10px 0 4px;background:rgba(250,249,247,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.cols{display:flex;gap:14px;overflow-x:auto;scrollbar-width:none;padding:0 18px 8px;scroll-snap-type:x proximity}
+@media(min-width:720px){.cols{justify-content:center}}
 .cols::-webkit-scrollbar{display:none}
-.col{flex:none;border:0;background:none;padding:0;display:flex;flex-direction:column;align-items:center;gap:7px;width:70px;scroll-snap-align:start}
-.col .ring{width:64px;height:64px;border-radius:50%;padding:3px;border:1.5px solid var(--line);transition:border-color .2s,transform .2s;background:var(--ivory)}
+.col{flex:none;border:0;background:none;padding:0;display:flex;flex-direction:column;align-items:center;gap:6px;width:70px;scroll-snap-align:start}
+.col .ring{width:62px;height:62px;border-radius:50%;padding:3px;border:1.5px solid var(--line);transition:border-color .2s,transform .2s;background:#fff}
 .col img,.col .lg{width:100%;height:100%;border-radius:50%;object-fit:cover}
-.col .lgc{width:100%;height:100%;border-radius:50%;background:var(--ivory) url(img/marble.jpg) center/300%;display:grid;place-items:center;color:var(--ink)}
+.col .lgc{width:100%;height:100%;border-radius:50%;background:#fff url(img/marble.jpg) center/300%;display:grid;place-items:center;color:var(--ink)}
 .col .lgc .lg{width:70%;height:auto;border-radius:0}
-.col span{font-size:12px;line-height:1.2;text-align:center;color:var(--ink-2)}
+.col span{font-size:11.5px;line-height:1.2;text-align:center;color:var(--ink-2)}
 .col[aria-pressed="true"] .ring{border-color:var(--ink);border-width:2px}
 .col[aria-pressed="true"] span{color:var(--ink);font-weight:600}
 .col:active .ring{transform:scale(.94)}
@@ -191,8 +220,6 @@ ul.inc li small{display:block;color:var(--muted);font-size:13px;line-height:1.45
 
 /* ===== Floating social ===== */
 .fab{position:fixed;left:14px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:29;display:flex;flex-direction:column;gap:10px;transition:bottom .4s cubic-bezier(.2,.8,.2,1)}
-.fab{opacity:0;transform:translateY(20px);pointer-events:none;transition:bottom .4s cubic-bezier(.2,.8,.2,1),opacity .3s,transform .3s}
-body.scrolled .fab{opacity:1;transform:none;pointer-events:auto}
 body.has-cart .fab{bottom:calc(90px + env(safe-area-inset-bottom))}
 .fab a{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;box-shadow:0 10px 24px -10px rgba(40,25,15,.55);text-decoration:none;transition:transform .2s}
 .fab a:active{transform:scale(.92)}
@@ -214,18 +241,7 @@ footer .fine{margin-top:22px}
 </head>
 <body>
 
-<header class="hero">
-  <div class="lg" data-logo></div>
-  <div class="tag">EVENT BRANDING &amp; GIFTING</div>
-  <div class="rule"><span class="en">Collection 2026</span></div>
-  <h1>קטלוג<b>מארזים</b></h1>
-  <p>מארזי מתנה ממותגים, בעיצוב אישי ובהקדשה אישית — לכל אירוע.</p>
-  <a class="go" href="#catalog">לצפייה במארזים
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
-  <div class="scroll" aria-hidden="true"></div>
-</header>
-
-<div class="bar" id="bar">
+<header class="hdr" id="bar">
   <div class="wrap">
     <div class="bar-top">
       <button class="icon-btn" id="searchBtn" aria-label="חיפוש"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
@@ -233,9 +249,35 @@ footer .fine{margin-top:22px}
       <button class="icon-btn" id="bagBtn" aria-label="הרשימה שלי"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="n" id="bagN"></span></button>
     </div>
     <div class="search" id="search"><label><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" opacity=".5"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="מה מחפשים? פמוטים, הבדלה, נר…" autocomplete="off"></label></div>
-    <div class="cols" id="cols"></div>
   </div>
-</div>
+</header>
+
+<section class="hero" id="top">
+  <img class="slide" src="img/p16_0.jpg" alt="" fetchpriority="high">
+  <img class="slide" src="img/p07_0.jpg" alt="" loading="lazy">
+  <img class="slide" src="img/p14_1.jpg" alt="" loading="lazy">
+  <img class="slide" src="img/p11_0.jpg" alt="" loading="lazy">
+  <div class="hero-in">
+    <span class="k en">Collection 2026</span>
+    <h1>קטלוג <b>מארזים</b></h1>
+    <p>מארזי מתנה ממותגים עם הקדשה אישית — שהאורחים שלכם ייקחו הביתה וישמרו.</p>
+    <a class="hint" href="#intro">גללו לקטלוג<i></i></a>
+  </div>
+</section>
+
+<section class="intro wrap" id="intro">
+  <div class="usp">
+    <div><b id="uspN">37</b><span>מארזים לבחירה</span></div>
+    <div><b>✦</b><span>הקדשה אישית ומיתוג לאירוע</span></div>
+    <div><b id="uspP">₪10</b><span>מחיר ליחידה, החל מ־</span></div>
+  </div>
+  <div class="steps">
+    <span class="en">How to order</span>
+    <h2>איך מזמינים?</h2>
+    <ol><li>בוחרים מארזים וכמות</li><li>שולחים את הרשימה בוואטסאפ</li><li>מקבלים הצעה סופית ואישור</li></ol>
+  </div>
+</section>
+<div class="cols-wrap"><div class="cols" id="cols"></div></div>
 
 <main class="wrap" id="catalog">
   <div class="sort"><span id="count"></span>
@@ -297,6 +339,13 @@ footer .fine{margin-top:22px}
 <script>
 /* ======= הגדרות ======= */
 const WHATSAPP = "972528733832";
+const PIXEL_ID = ""; // מזהה פיקסל של מטא (פייסבוק) — להדביק כאן כדי למדוד את הקמפיין
+
+/* ======= פיקסל מטא + מקור הגעה ======= */
+if(PIXEL_ID){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init',PIXEL_ID);fbq('track','PageView')}
+const track=(ev,data)=>{try{window.fbq&&fbq('track',ev,data)}catch(e){}};
+const SRC=(()=>{const u=new URLSearchParams(location.search);let s=u.get("utm_source")||(u.get("fbclid")?"facebook":"");try{if(s)sessionStorage.setItem("or-src",s);else s=sessionStorage.getItem("or-src")||""}catch(e){}return s})();
+const srcNote=()=>/face|fb|meta/i.test(SRC)?"\n(הגעתי מהפרסום בפייסבוק)":/insta|ig/i.test(SRC)?"\n(הגעתי מהאינסטגרם)":"";
 
 /* ======= נתוני המארזים ======= */
 const BR = ["ברכון מעוצב עם הקדשה אישית","סדר הדלקת נרות | הפרשת חלה | ברכת המזון | מזמור לתודה (מתוך מגוון דגמים)"];
@@ -355,6 +404,7 @@ const META = {
 const $ = s => document.querySelector(s);
 const fmt = n => n==null ? "הצעת מחיר" : "₪" + (Number.isInteger(n)?n:n.toFixed(1));
 const src = n => "img/" + n + ".jpg";
+const th = n => "img/t/" + n + ".jpg";
 const fromPrice = p => Math.min(...p.v.map(x=>x[1] ?? Infinity));
 const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const store = {get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
@@ -364,17 +414,17 @@ const waLink = t => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(t)}`;
 const waIcon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>`;
 P.forEach((p,i)=>p.n=String(i+1).padStart(2,"0"));
 logoIn(document);
-$("#waFab").href = $("#waFoot").href = waLink("היי OR Design Studio! ראיתי את הקטלוג ואשמח לפרטים 🤍");
+$("#waFab").href = $("#waFoot").href = waLink("היי OR Design Studio! ראיתי את הקטלוג ואשמח לפרטים 🤍"+srcNote());
 
 /* ======= מצב ======= */
 let cat="הכל", q="", sort="";
 let cart = store.get("or-cart",[]);
 
 /* ======= קולקציות ======= */
-$("#cols").innerHTML = CATS.map(c=>`<button class="col" data-c="${c}" aria-pressed="${c===cat}"><span class="ring">${c==="הכל"?`<span class="lgc"><span class="lg" data-logo></span></span>`:`<img src="${src(META[c].img)}" alt="">`}</span><span>${c}</span></button>`).join("");
+$("#cols").innerHTML = CATS.map(c=>`<button class="col" data-c="${c}" aria-pressed="${c===cat}"><span class="ring">${c==="הכל"?`<span class="lgc"><span class="lg" data-logo></span></span>`:`<img src="${th(META[c].img)}" alt="">`}</span><span>${c}</span></button>`).join("");
 logoIn($("#cols"));
 $("#cols").onclick = e=>{const b=e.target.closest(".col");if(!b)return;cat=b.dataset.c;document.querySelectorAll(".col").forEach(x=>x.setAttribute("aria-pressed",x===b));render();
-  const top=$("#catalog").getBoundingClientRect().top+scrollY-$("#bar").offsetHeight; if(scrollY>top) scrollTo({top,behavior:"smooth"})};
+  const top=$("#catalog").getBoundingClientRect().top+scrollY-$("#bar").offsetHeight-$(".cols-wrap").offsetHeight-4; scrollTo({top,behavior:"smooth"})};
 $("#searchBtn").onclick=()=>{const s=$("#search");s.classList.toggle("open");if(s.classList.contains("open"))setTimeout(()=>$("#q").focus(),250)};
 $("#q").oninput = e=>{q=e.target.value.trim();render()};
 $("#sort").onchange = e=>{sort=e.target.value;render()};
@@ -384,7 +434,7 @@ $("#bagBtn").onclick=()=>cart.length?openCart():null;
 function card(p){
   const n=cart.filter(c=>c.id===p.id).reduce((s,c)=>s+c.qty,0), fp=fromPrice(p);
   return `<button class="card" data-id="${p.id}">
-    <div class="ph"><img src="${src(p.img[0])}" alt="${esc(p.name)}" loading="lazy" decoding="async"><span class="num en">${p.n}</span>
+    <div class="ph"><img src="${th(p.img[0])}" alt="${esc(p.name)}" loading="lazy" decoding="async"><span class="num en">${p.n}</span>
       ${p.img.length>1?`<span class="multi"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="14" height="14" rx="3"/><path d="M21 7v12a2 2 0 0 1-2 2H7"/></svg>${p.img.length}</span>`:""}
       ${n?`<span class="inlist">✓ ${n} ברשימה</span>`:""}</div>
     <div class="body"><h3>${esc(p.name)}</h3><div class="t">${esc(p.tag)}</div>
@@ -410,7 +460,9 @@ function render(){
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{rootMargin:"0px 0px -6% 0px"});
 function reveal(){document.querySelectorAll(".card:not(.in)").forEach((c,i)=>{c.style.transitionDelay=(i%2)*60+"ms";io.observe(c)})}
 $("#list").onclick=e=>{const c=e.target.closest(".card");if(c)openProduct(c.dataset.id)};
-new IntersectionObserver(([e])=>{$("#bar").classList.toggle("stuck",!e.isIntersecting);document.body.classList.toggle("scrolled",!e.isIntersecting)}).observe($(".hero .go"));
+new IntersectionObserver(([e])=>$("#bar").classList.toggle("solid",!e.isIntersecting),{rootMargin:"-90px 0px 0px 0px"}).observe($(".hero"));
+$("#uspN").textContent=P.length; $("#uspP").textContent=fmt(Math.min(...P.map(fromPrice)));
+document.querySelectorAll(".fab a,#waFoot").forEach(a=>a.addEventListener("click",()=>track("Contact")));
 
 /* ======= חלונית ======= */
 const sheet=$("#sheet"), scrim=$("#scrim");
@@ -429,6 +481,7 @@ const incHTML=p=>p.inc.map(i=>{const [a,b]=Array.isArray(i)?i:[i,""];return `<li
 function openProduct(id){
   const p=P.find(x=>x.id===id); let vi=0;
   const minQ=p.min||1, quote=p.v[0][1]==null;
+  track('ViewContent',{content_name:p.name,content_ids:[p.id],content_type:'product',value:p.v[0][1]||0,currency:'ILS'});
   openSheet(`<div class="scroll">
     <div class="gal-wrap"><div class="gallery" id="gal">${p.img.map(i=>`<img src="${src(i)}" alt="${esc(p.name)}">`).join("")}</div></div>
     ${p.img.length>1?`<div class="dots" id="dots">${p.img.map((_,i)=>`<span class="${i?"":"on"}"></span>`).join("")}</div>`:""}
@@ -443,7 +496,7 @@ function openProduct(id){
       ${sign}
     </div></div>
     <div class="err" id="err">הכמות המינימלית למארז זה היא ${minQ} יחידות</div>
-    ${quote?`<div class="buy"><a class="cta wa" href="${waLink(`היי OR Design Studio! אשמח להצעת מחיר על ${p.name} 🤍`)}" target="_blank" rel="noopener">${waIcon}הצעת מחיר מ־OR Design</a></div>`
+    ${quote?`<div class="buy"><a class="cta wa" href="${waLink(`היי OR Design Studio! אשמח להצעת מחיר על ${p.name} 🤍${srcNote()}`)}" target="_blank" rel="noopener">${waIcon}הצעת מחיר מ־OR Design</a></div>`
     :`<div class="buy"><div class="qty"><button data-d="1" aria-label="הוספה">+</button><input id="qn" type="number" inputmode="numeric" value="${minQ}" min="${minQ}" aria-label="כמות"><button data-d="-1" aria-label="הפחתה">−</button></div><button class="cta" id="add">הוספה לרשימה · <span id="sum"></span></button></div>`}`);
   const gal=$("#gal"),dots=$("#dots");
   if(dots)gal.addEventListener("scroll",()=>{const i=Math.round(Math.abs(gal.scrollLeft)/gal.clientWidth);dots.querySelectorAll("span").forEach((s,k)=>s.classList.toggle("on",k===i))},{passive:true});
@@ -453,7 +506,7 @@ function openProduct(id){
   qn.oninput=upd;
   const vars=$("#vars");if(vars)vars.onclick=e=>{const b=e.target.closest(".variant");if(!b)return;vi=+b.dataset.i;vars.querySelectorAll(".variant").forEach(x=>x.setAttribute("aria-pressed",x===b));upd()};
   $("#add").onclick=()=>{const n=+qn.value||0;if(n<minQ){$("#err").style.display="block";return}
-    const ex=cart.find(c=>c.id===p.id&&c.vi===vi);if(ex)ex.qty=n;else cart.push({id:p.id,vi,qty:n});saveCart();closeSheet()};
+    track('AddToCart',{content_name:p.name,content_ids:[p.id],content_type:'product',value:r1(n*p.v[vi][1]),currency:'ILS'});const ex=cart.find(c=>c.id===p.id&&c.vi===vi);if(ex)ex.qty=n;else cart.push({id:p.id,vi,qty:n});saveCart();closeSheet()};
   upd();
 }
 
@@ -465,21 +518,23 @@ function saveCart(){cart=cart.filter(c=>P.find(x=>x.id===c.id));store.set("or-ca
   $("#bN").textContent=n;$("#bT").textContent=fmt(r1(t));$("#bagN").textContent=n||"";$("#basketBar").classList.toggle("show",n>0);document.body.classList.toggle("has-cart",n>0);render()}
 function cartText(){
   const lines=cart.map(c=>{const p=P.find(x=>x.id===c.id),v=p.v[c.vi];return `• ${p.name}${v[0]?` (${v[0]})`:""} — ${c.qty} יח׳ × ${fmt(v[1])} = ${fmt(r1(lineTotal(c)))}`});
-  return `היי OR Design Studio! 🤍 אשמח להזמין מהקטלוג:\n${lines.join("\n")}\n\nסה״כ משוער: ${fmt(r1(cart.reduce((s,c)=>s+lineTotal(c),0)))}\n\nתאריך האירוע: \nנוסח ההקדשה: `;
+  return `היי OR Design Studio! 🤍 אשמח להזמין מהקטלוג:\n${lines.join("\n")}\n\nסה״כ משוער: ${fmt(r1(cart.reduce((s,c)=>s+lineTotal(c),0)))}\n\nתאריך האירוע: \nנוסח ההקדשה: ${srcNote()}`;
 }
 function openCart(){
   if(!cart.length)return;
+  if(!sheet.classList.contains('open'))track('InitiateCheckout',{num_items:cart.length,currency:'ILS'});
   const t=cart.reduce((s,c)=>s+lineTotal(c),0);
   openSheet(`<div class="scroll"><div class="detail">
     <div class="cart-head"><span class="lg" data-logo></span><div><span class="en k" style="font-size:13px;letter-spacing:.22em;color:var(--gold)">YOUR SELECTION</span><h2 style="margin:0">הרשימה שלי</h2></div></div>
     <p class="fine" style="margin:10px 0 4px">שולחים את הרשימה ל־OR Design בוואטסאפ ומקבלים אישור והצעה סופית.</p>
-    ${cart.map((c,i)=>{const p=P.find(x=>x.id===c.id),v=p.v[c.vi];return `<div class="line" data-i="${i}"><img src="${src(p.img[0])}" alt=""><div class="tt"><b>${esc(p.name)}</b><span>${v[0]?esc(v[0])+" · ":""}${fmt(v[1])} ליח׳ · ${fmt(r1(lineTotal(c)))}</span><br><button class="rm" data-rm>הסרה</button></div>
+    ${cart.map((c,i)=>{const p=P.find(x=>x.id===c.id),v=p.v[c.vi];return `<div class="line" data-i="${i}"><img src="${th(p.img[0])}" alt=""><div class="tt"><b>${esc(p.name)}</b><span>${v[0]?esc(v[0])+" · ":""}${fmt(v[1])} ליח׳ · ${fmt(r1(lineTotal(c)))}</span><br><button class="rm" data-rm>הסרה</button></div>
       <div class="qty"><button data-q="1">+</button><input type="number" inputmode="numeric" value="${c.qty}" aria-label="כמות"><button data-q="-1">−</button></div></div>`}).join("")}
     <div class="total"><span>סה״כ משוער</span><span>${fmt(r1(t))}</span></div>
     <p class="fine">המחיר הסופי לאחר אישור. ייתכנו תוספות (גפרורים ממותגים, משלוח).</p>
     ${sign}
   </div></div>
   <div class="buy"><a class="cta wa" id="send" href="${waLink(cartText())}" target="_blank" rel="noopener">${waIcon}שליחה ל־OR Design בוואטסאפ</a></div>`);
+  $("#send").addEventListener("click",()=>track('Lead',{value:r1(cart.reduce((s,c)=>s+lineTotal(c),0)),currency:'ILS'}));
   sheet.querySelectorAll(".line").forEach(row=>{const i=+row.dataset.i,c=cart[i],p=P.find(x=>x.id===c.id),m=p.min||1,inp=row.querySelector("input");
     const set=n=>{c.qty=Math.max(m,n);saveCart();keepScroll(openCart)};
     row.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>set(c.qty+ +b.dataset.q));
