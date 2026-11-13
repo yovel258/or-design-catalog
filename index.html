@@ -128,6 +128,21 @@ ul.inc li small{display:block;color:var(--muted);font-size:13px;line-height:1.4}
 .total{display:flex;justify-content:space-between;font-size:18px;padding:14px 0 4px;font-weight:700}
 .fine{font-size:12.5px;color:var(--muted)}
 footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 16px 110px}
+
+/* ===== Branding everywhere ===== */
+.lg svg{width:100%;height:auto;display:block}
+.mini{display:flex;justify-content:center;align-items:center;height:0;opacity:0;overflow:hidden;transition:height .25s,opacity .25s,margin .25s}
+.mini .lg{width:66px;color:var(--ink)}
+.bar.stuck .mini{height:46px;opacity:1;margin-bottom:6px}
+.basket .bm{width:48px;color:var(--accent-ink);flex:none}
+.basket .mid{display:flex;align-items:center;flex:1;justify-content:center}
+.sheet-brand{display:flex;flex-direction:column;align-items:center;gap:4px;padding:26px 0 6px;color:var(--ink)}
+.sheet-brand .lg{width:84px}
+.sheet-brand span{font-size:10px;letter-spacing:.28em;color:var(--muted);direction:ltr}
+.cart-head{display:flex;align-items:center;gap:12px}
+.cart-head .lg{width:62px;color:var(--ink);flex:none}
+.cta.wa .who{font-weight:400;opacity:.9}
+footer .lg{width:90px;margin:0 auto 10px;color:var(--ink)}
 </style>
 </head>
 <body>
@@ -170,6 +185,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 16px 110
 
 <div class="bar">
   <div class="wrap">
+    <div class="mini"><div class="lg" data-logo></div></div>
     <label class="search">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       <input id="q" type="search" placeholder="חיפוש: פמוטים, הבדלה, נר…" autocomplete="off">
@@ -182,10 +198,11 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 16px 110
 </div>
 
 <main class="wrap"><div class="grid" id="grid"></div></main>
-<footer>המחירים ליחידה וכוללים הקדשה אישית היכן שמצוין · התמונות להמחשה<br>© OR Design Studio</footer>
+<footer><div class="lg" data-logo></div>המחירים ליחידה וכוללים הקדשה אישית היכן שמצוין · התמונות להמחשה<br>© OR Design Studio</footer>
 
 <button class="basket" id="basketBar" aria-label="פתיחת רשימת ההזמנה">
-  <span><span class="n" id="bN">0</span>הרשימה שלי</span>
+  <span class="lg bm" data-logo></span>
+  <span class="mid"><span class="n" id="bN">0</span>הרשימה שלי</span>
   <b id="bT">₪0</b>
 </button>
 
@@ -248,6 +265,14 @@ const fromPrice = p => Math.min(...p.v.map(x=>x[1] ?? Infinity));
 const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const store = {get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 
+/* ======= לוגו בכל מקום ======= */
+const LOGO = document.querySelector(".logo svg").outerHTML;
+const logoIn = root => root.querySelectorAll("[data-logo]").forEach(el=>{if(!el.firstChild)el.innerHTML=LOGO});
+logoIn(document);
+const brandHTML = `<div class="sheet-brand"><div class="lg" data-logo></div><span>EVENT BRANDING &amp; GIFTING</span></div>`;
+// לוגו קטן בפס העליון כשגוללים מתחת ללוגו הגדול
+new IntersectionObserver(([e])=>document.querySelector(".bar").classList.toggle("stuck",!e.isIntersecting),{threshold:0}).observe(document.querySelector(".logo"));
+
 /* ======= פלטה ======= */
 function setTheme(t){document.documentElement.dataset.theme=t;document.querySelectorAll("[data-set-theme]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.setTheme===t));document.querySelector('meta[name=theme-color]').content=getComputedStyle(document.documentElement).getPropertyValue("--bg").trim();store.set("or-theme",t)}
 document.querySelectorAll("[data-set-theme]").forEach(b=>b.onclick=()=>setTheme(b.dataset.setTheme));
@@ -283,7 +308,7 @@ $("#grid").onclick = e=>{const c=e.target.closest(".card");if(c)openProduct(c.da
 
 /* ======= חלונית ======= */
 const sheet=$("#sheet"), scrim=$("#scrim");
-function openSheet(html){const was=sheet.classList.contains("open");sheet.innerHTML=`<div class="grab"></div><button class="x" aria-label="סגירה">×</button>`+html;sheet.classList.add("open");scrim.classList.add("open");document.body.style.overflow="hidden";sheet.querySelector(".x").onclick=closeSheet;if(!was)history.pushState({s:1},"")}
+function openSheet(html){const was=sheet.classList.contains("open");sheet.innerHTML=`<div class="grab"></div><button class="x" aria-label="סגירה">×</button>`+html;sheet.classList.add("open");scrim.classList.add("open");document.body.style.overflow="hidden";sheet.querySelector(".x").onclick=closeSheet;logoIn(sheet);if(!was)history.pushState({s:1},"")}
 function closeSheet(fromPop){if(!sheet.classList.contains("open"))return;sheet.classList.remove("open");scrim.classList.remove("open");document.body.style.overflow="";if(fromPop!==true&&history.state&&history.state.s)history.back()}
 scrim.onclick=closeSheet;
 addEventListener("popstate",()=>closeSheet(true));
@@ -308,9 +333,10 @@ function openProduct(id){
         :`<div class="bigprice">${fmt(p.v[0][1])} ${quote?"":"<small>ליחידה</small>"}</div>`}
       <h4>מה כולל המארז</h4><ul class="inc">${incHTML(p)}</ul>
       ${p.note?`<div class="note">💡 ${esc(p.note)}</div>`:""}
+      ${brandHTML}
     </div></div>
     <div class="err" id="err">הכמות המינימלית למארז זה היא ${minQ} יחידות</div>
-    ${quote?`<div class="buy"><a class="cta wa" href="${waLink(`היי, אשמח להצעת מחיר על ${p.name}`)}" target="_blank" rel="noopener">${waIcon}בקשת הצעת מחיר</a></div>`
+    ${quote?`<div class="buy"><a class="cta wa" href="${waLink(`היי, אשמח להצעת מחיר על ${p.name}`)}" target="_blank" rel="noopener">${waIcon}הצעת מחיר מ־OR Design</a></div>`
     :`<div class="buy"><div class="qty"><button data-d="1" aria-label="הוספה">+</button><input id="qn" type="number" inputmode="numeric" value="${minQ}" min="${minQ}" aria-label="כמות"><button data-d="-1" aria-label="הפחתה">−</button></div><button class="cta" id="add">הוספה · <span id="sum"></span></button></div>`}`);
   const gal=$("#gal"), dots=$("#dots");
   if(dots) gal.addEventListener("scroll",()=>{const i=Math.round(Math.abs(gal.scrollLeft)/gal.clientWidth);dots.querySelectorAll("span").forEach((s,k)=>s.classList.toggle("on",k===i))},{passive:true});
@@ -333,7 +359,7 @@ function saveCart(){cart=cart.filter(c=>P.find(x=>x.id===c.id));store.set("or-ca
 function cartText(){
   const lines=cart.map(c=>{const p=P.find(x=>x.id===c.id),v=p.v[c.vi];return `• ${p.name}${v[0]?` (${v[0]})`:""} — ${c.qty} יח׳ × ${fmt(v[1])} = ${fmt(Math.round(lineTotal(c)*10)/10)}`});
   const t=cart.reduce((s,c)=>s+lineTotal(c),0);
-  return `היי! אשמח להזמין מהקטלוג:\n${lines.join("\n")}\n\nסה״כ משוער: ${fmt(Math.round(t*10)/10)}\n\nתאריך האירוע: \nנוסח ההקדשה: `;
+  return `היי OR Design Studio! אשמח להזמין מהקטלוג:\n${lines.join("\n")}\n\nסה״כ משוער: ${fmt(Math.round(t*10)/10)}\n\nתאריך האירוע: \nנוסח ההקדשה: `;
 }
 const waIcon=`<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>`;
 const waLink=t=>`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(t)}`;
@@ -341,13 +367,13 @@ function openCart(){
   if(!cart.length) return;
   const t=cart.reduce((s,c)=>s+lineTotal(c),0);
   openSheet(`<div class="scroll"><div class="detail" style="padding-top:18px">
-    <h2>הרשימה שלי</h2><p class="fine" style="margin:4px 0 6px">שולחים את הרשימה בוואטסאפ ומקבלים אישור והצעה סופית.</p>
+    <div class="cart-head"><div class="lg" data-logo></div><div><h2>הרשימה שלי</h2><p class="fine" style="margin:2px 0 6px">שולחים את הרשימה ל־OR Design בוואטסאפ ומקבלים אישור והצעה סופית.</p></div></div>
     ${cart.map((c,i)=>{const p=P.find(x=>x.id===c.id),v=p.v[c.vi];return `<div class="line" data-i="${i}"><img src="${src(p.img[0])}" alt=""><div class="t"><b>${esc(p.name)}</b><span>${v[0]?esc(v[0])+" · ":""}${fmt(v[1])} ליח׳ · ${fmt(Math.round(lineTotal(c)*10)/10)}</span><br><button class="rm" data-rm="${i}">הסרה</button></div>
       <div class="qty"><button data-q="1">+</button><input type="number" inputmode="numeric" value="${c.qty}" data-in="${i}" aria-label="כמות"><button data-q="-1">−</button></div></div>`}).join("")}
     <div class="total"><span>סה״כ משוער</span><span>${fmt(Math.round(t*10)/10)}</span></div>
     <p class="fine">המחיר סופי לאחר אישור. ייתכנו תוספות (גפרורים ממותגים, משלוח).</p>
   </div></div>
-  <div class="buy"><a class="cta wa" id="send" href="${waLink(cartText())}" target="_blank" rel="noopener">${waIcon}שליחת הזמנה בוואטסאפ</a></div>`);
+  <div class="buy"><a class="cta wa" id="send" href="${waLink(cartText())}" target="_blank" rel="noopener">${waIcon}שליחה ל־OR Design <span class="who">בוואטסאפ</span></a></div>`);
   sheet.querySelectorAll(".line").forEach(row=>{const i=+row.dataset.i,c=cart[i],p=P.find(x=>x.id===c.id),m=p.min||1,inp=row.querySelector("input");
     const set=n=>{c.qty=Math.max(m,n);store.set("or-cart",cart);reopen()};
     row.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>set(c.qty+ +b.dataset.q));
