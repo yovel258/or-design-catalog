@@ -1,158 +1,272 @@
 <!doctype html>
-<html lang="he" dir="rtl" data-theme="natural">
+<html lang="he" dir="rtl">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>OR Design Studio · קטלוג מארזים</title>
-<meta name="description" content="קטלוג מארזים 2026 — OR Design Studio · מיתוג ומתנות לאירועים">
-<meta name="theme-color" content="#F6EFE4">
+<title>OR Design Studio · קטלוג מארזים 2026</title>
+<meta name="description" content="קטלוג מארזים 2026 — OR Design Studio · מיתוג ומתנות לאירועים, עם הקדשה אישית">
+<meta property="og:title" content="OR Design Studio · קטלוג מארזים 2026">
+<meta property="og:description" content="מארזי מתנה ממותגים עם הקדשה אישית לכל אירוע">
+<meta property="og:image" content="img/p07_0.jpg">
+<meta name="theme-color" content="#F5F0EA">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/marble.jpg">
 <style>
-/* ===== Palettes ===== */
-:root, [data-theme="natural"]{
-  --bg:#F6EFE4; --surface:#FDFCF4; --soft:#EFE3D1; --line:#E2D1B9;
-  --ink:#3B2A20; --muted:#8A7563; --accent:#6B4A35; --accent-ink:#FDFCF4; --tag:#C6A37F;
-}
-[data-theme="bordeaux"]{
-  --bg:#EBE3D8; --surface:#F7F2EB; --soft:#E2E9EF; --line:#D9CFC2;
-  --ink:#521C24; --muted:#7D6166; --accent:#521C24; --accent-ink:#F7F2EB; --tag:#B4C7D6;
+:root{
+  --ink:#3C2414;          /* חום הלוגו */
+  --ink-2:#6E5442;
+  --muted:#9A8573;
+  --gold:#B89B7A;
+  --line:rgba(60,36,20,.12);
+  --glass:rgba(253,251,247,.78);
+  --glass-strong:rgba(253,251,247,.94);
+  --ivory:#FBF8F3;
+  --blush:#EAD9CE;
+  --shadow:0 1px 2px rgba(60,36,20,.05),0 10px 30px -12px rgba(60,36,20,.22);
+  --r:22px;
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --sans:"Rubik",system-ui,sans-serif;
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0}
-body{background:var(--bg);color:var(--ink);font-family:"Rubik",system-ui,sans-serif;font-size:16px;line-height:1.5;transition:background .3s,color .3s}
+body{color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;background:#F5F0EA;min-height:100vh;-webkit-font-smoothing:antialiased}
+/* שיש — שכבה קבועה (עובד גם באייפון) */
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:#F5F0EA url(img/marble.jpg) center/cover no-repeat}
+body::after{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(120% 80% at 50% 0%,rgba(255,255,255,.55),transparent 60%)}
 button{font:inherit;color:inherit;cursor:pointer}
 img{display:block;max-width:100%}
-.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 18px}
+.lg svg{width:100%;height:auto;display:block}
+.en{font-family:var(--serif);direction:ltr;unicode-bidi:isolate}
 
 /* ===== Hero ===== */
-header.hero{text-align:center;padding:28px 16px 18px}
-.logo{width:150px;margin:0 auto;color:var(--ink)}
-.logo svg{width:100%;height:auto;display:block}
-.tagline{letter-spacing:.28em;font-size:11px;color:var(--muted);margin-top:8px;direction:ltr}
-h1{font-family:"Rubik",sans-serif;font-weight:800;letter-spacing:-.02em;font-size:34px;margin:18px 0 4px}
-.sub{color:var(--muted);margin:0;font-size:15px}
-.palette{position:absolute;top:14px;inset-inline-start:14px;display:flex;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:99px;padding:5px}
-.palette button{width:22px;height:22px;border-radius:50%;border:2px solid transparent;padding:0}
-.palette button[aria-pressed="true"]{border-color:var(--ink)}
-.palette .p-natural{background:linear-gradient(135deg,#F6E7D2 50%,#6B4A35 50%)}
-.palette .p-bordeaux{background:linear-gradient(135deg,#EBE3D8 50%,#521C24 50%)}
+.hero{min-height:88vh;min-height:88svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 22px 30px;position:relative}
+.hero .lg{width:min(210px,56vw);color:var(--ink);animation:rise 1s cubic-bezier(.2,.7,.2,1) both}
+.hero .tag{font-size:10.5px;letter-spacing:.42em;color:var(--ink-2);margin-top:14px;font-family:var(--sans);direction:ltr;animation:rise 1s .1s both}
+.rule{display:flex;align-items:center;gap:14px;margin:34px 0 18px;color:var(--gold);animation:rise 1s .2s both}
+.rule::before,.rule::after{content:"";width:46px;height:1px;background:currentColor;opacity:.7}
+.rule span{font-family:var(--serif);font-style:italic;font-size:18px;letter-spacing:.06em}
+.hero h1{font-weight:300;font-size:clamp(40px,11vw,64px);line-height:1.02;margin:0;letter-spacing:-.02em;animation:rise 1s .3s both}
+.hero h1 b{font-weight:600;display:block}
+.hero p{max-width:30ch;color:var(--ink-2);font-size:16px;margin:16px auto 0;font-weight:300;animation:rise 1s .4s both}
+.hero .go{margin-top:34px;display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--ivory);border:0;border-radius:99px;padding:14px 26px;font-size:15px;font-weight:500;text-decoration:none;box-shadow:var(--shadow);animation:rise 1s .5s both}
+.hero .scroll{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);width:22px;height:36px;border:1.5px solid var(--gold);border-radius:20px;opacity:.7}
+.hero .scroll::after{content:"";position:absolute;left:50%;top:7px;width:3px;height:7px;border-radius:3px;background:var(--gold);transform:translateX(-50%);animation:sc 1.8s infinite}
+@keyframes sc{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 
-/* ===== Sticky filters ===== */
-.bar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:10px 0 8px;border-bottom:1px solid var(--line)}
-.search{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:0 12px;height:44px}
+/* ===== Sticky header ===== */
+.bar{position:sticky;top:0;z-index:20;background:rgba(250,246,241,.72);backdrop-filter:saturate(1.2) blur(16px);-webkit-backdrop-filter:saturate(1.2) blur(16px);border-bottom:1px solid var(--line);transition:box-shadow .3s}
+.bar.stuck{box-shadow:0 8px 24px -16px rgba(60,36,20,.35)}
+.bar-top{display:flex;align-items:center;justify-content:space-between;height:70px;gap:10px}
+.bar-top .lg{width:78px;color:var(--ink);padding-top:2px}
+.icon-btn{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--glass-strong);display:grid;place-items:center;flex:none;position:relative}
+.icon-btn .n{position:absolute;top:-3px;left:-3px;background:var(--ink);color:var(--ivory);font-size:11px;font-weight:600;min-width:19px;height:19px;border-radius:99px;display:grid;place-items:center;padding:0 4px}
+.icon-btn .n:empty{display:none}
+.search{overflow:hidden;max-height:0;transition:max-height .3s,padding .3s}
+.search.open{max-height:70px;padding-bottom:12px}
+.search label{display:flex;align-items:center;gap:8px;background:var(--glass-strong);border:1px solid var(--line);border-radius:14px;padding:0 14px;height:46px}
 .search input{flex:1;border:0;background:transparent;font:inherit;color:var(--ink);outline:none;min-width:0}
-.search svg{flex:none;opacity:.55}
-.chips{display:flex;gap:8px;overflow-x:auto;padding:10px 0 2px;scrollbar-width:none;margin:0 -16px;padding-inline:16px}
-.chips::-webkit-scrollbar{display:none}
-.chip{flex:none;border:1px solid var(--line);background:var(--surface);border-radius:99px;padding:7px 14px;font-size:14px;white-space:nowrap}
-.chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.meta{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted);padding-top:8px}
-.meta select{font:inherit;color:var(--ink);background:transparent;border:0;padding:2px 0}
 
-/* ===== Grid ===== */
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:16px 0 120px}
-@media (min-width:700px){.grid{grid-template-columns:repeat(3,1fr);gap:18px}}
-@media (min-width:1000px){.grid{grid-template-columns:repeat(4,1fr)}}
-.card{background:var(--surface);border-radius:16px;overflow:hidden;border:1px solid var(--line);text-align:start;padding:0;display:flex;flex-direction:column;transition:transform .15s}
-.card:active{transform:scale(.98)}
-.card .ph{aspect-ratio:4/5;background:var(--soft);position:relative;overflow:hidden}
-.card .ph img{width:100%;height:100%;object-fit:cover}
-.card .count{position:absolute;bottom:8px;inset-inline-start:8px;background:rgba(0,0,0,.45);color:#fff;font-size:11px;border-radius:99px;padding:2px 8px}
-.card .in{position:absolute;top:8px;inset-inline-end:8px;background:var(--accent);color:var(--accent-ink);font-size:11px;border-radius:99px;padding:2px 8px;font-weight:600}
-.card .body{padding:10px 12px 12px;display:flex;flex-direction:column;gap:2px;flex:1}
-.card h3{font-family:"Rubik",sans-serif;font-weight:600;letter-spacing:-.01em;font-size:16px;line-height:1.25;margin:0}
-.card .tagl{font-size:12.5px;color:var(--muted);line-height:1.3}
-.card .row{display:flex;justify-content:space-between;align-items:baseline;margin-top:auto;padding-top:6px}
-.price{font-weight:700;font-size:18px}
-.price small{font-weight:400;font-size:12px;color:var(--muted)}
-.min{font-size:12px;color:var(--muted)}
-.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:40px 0}
+/* ===== Collections (בהשראת ההיילייטס) ===== */
+.cols{display:flex;gap:14px;overflow-x:auto;scrollbar-width:none;padding:6px 18px 14px;margin:0 -18px;scroll-snap-type:x proximity}
+.cols::-webkit-scrollbar{display:none}
+.col{flex:none;border:0;background:none;padding:0;display:flex;flex-direction:column;align-items:center;gap:7px;width:70px;scroll-snap-align:start}
+.col .ring{width:64px;height:64px;border-radius:50%;padding:3px;border:1.5px solid var(--line);transition:border-color .2s,transform .2s;background:var(--ivory)}
+.col img,.col .lg{width:100%;height:100%;border-radius:50%;object-fit:cover}
+.col .lgc{width:100%;height:100%;border-radius:50%;background:var(--ivory) url(img/marble.jpg) center/300%;display:grid;place-items:center;color:var(--ink)}
+.col .lgc .lg{width:70%;height:auto;border-radius:0}
+.col span{font-size:12px;line-height:1.2;text-align:center;color:var(--ink-2)}
+.col[aria-pressed="true"] .ring{border-color:var(--ink);border-width:2px}
+.col[aria-pressed="true"] span{color:var(--ink);font-weight:600}
+.col:active .ring{transform:scale(.94)}
+
+/* ===== Sections ===== */
+main{padding-bottom:130px}
+.sec-h{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:34px 0 16px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.sec-h .en{font-size:13px;letter-spacing:.24em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:2px}
+.sec-h h2{margin:0;font-weight:500;font-size:26px;letter-spacing:-.01em;line-height:1.1}
+.sec-h .c{font-size:13px;color:var(--muted);white-space:nowrap}
+.sort{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted);margin-top:18px}
+.sort select{font:inherit;color:var(--ink);background:var(--glass-strong);border:1px solid var(--line);border-radius:99px;padding:6px 12px}
+
+/* ===== Cards ===== */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media(min-width:720px){.grid{grid-template-columns:repeat(3,1fr);gap:20px}}
+@media(min-width:1040px){.grid{grid-template-columns:repeat(4,1fr)}}
+.card{background:var(--glass);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.7);border-radius:var(--r);overflow:hidden;text-align:start;padding:6px;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s;opacity:0;transform:translateY(16px)}
+.card.in{opacity:1;transform:none}
+.card:active{transform:scale(.975)}
+@media(hover:hover){.card:hover{transform:translateY(-3px);box-shadow:0 18px 40px -18px rgba(60,36,20,.35)}.card:hover .ph img{transform:scale(1.04)}}
+.ph{aspect-ratio:4/5;border-radius:calc(var(--r) - 6px);overflow:hidden;position:relative;background:var(--blush)}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.ph .num{position:absolute;top:9px;right:10px;font-family:var(--serif);font-style:italic;font-size:15px;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.35)}
+.ph .multi{position:absolute;bottom:9px;left:9px;background:rgba(251,248,243,.88);color:var(--ink);font-size:11px;border-radius:99px;padding:3px 9px;display:flex;gap:4px;align-items:center}
+.ph .inlist{position:absolute;top:8px;left:8px;background:var(--ink);color:var(--ivory);font-size:11px;font-weight:500;border-radius:99px;padding:3px 9px}
+.card .body{padding:11px 8px 8px;display:flex;flex-direction:column;flex:1}
+.card h3{font-size:15.5px;font-weight:500;line-height:1.25;margin:0;letter-spacing:-.005em}
+.card .t{font-size:12.5px;color:var(--muted);line-height:1.35;margin-top:3px;font-weight:300}
+.card .row{display:flex;flex-direction:column;align-items:flex-start;gap:1px;margin-top:auto;padding-top:10px}
+.price{font-weight:600;font-size:19px;letter-spacing:-.01em}
+.price small{font-weight:300;font-size:11.5px;color:var(--muted);margin-inline-end:2px}
+.price.q{font-size:13px;font-weight:500}
+.min{font-size:11.5px;color:var(--muted)}
+.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:50px 0}
 
 /* ===== Sheet ===== */
-.scrim{position:fixed;inset:0;background:rgba(30,20,15,.45);opacity:0;pointer-events:none;transition:opacity .25s;z-index:40}
+.scrim{position:fixed;inset:0;background:rgba(40,25,15,.4);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .3s;z-index:40}
 .scrim.open{opacity:1;pointer-events:auto}
-.sheet{position:fixed;inset-inline:0;bottom:0;max-height:92vh;max-height:92dvh;background:var(--surface);border-radius:22px 22px 0 0;z-index:50;transform:translateY(105%);transition:transform .3s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;max-width:640px;margin:0 auto}
+.sheet{position:fixed;inset-inline:0;bottom:0;max-height:94vh;max-height:94dvh;background:var(--ivory) ;border-radius:28px 28px 0 0;z-index:50;transform:translateY(105%);transition:transform .38s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;max-width:620px;margin:0 auto;overflow:hidden}
+.sheet::before{content:"";position:absolute;inset:0;background:url(img/marble.jpg) center/cover;opacity:.55;pointer-events:none}
+.sheet>*{position:relative}
 .sheet.open{transform:none}
-.sheet .grab{width:42px;height:5px;border-radius:9px;background:var(--line);margin:8px auto 0;flex:none}
-.sheet .x{position:absolute;top:10px;inset-inline-end:12px;width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.85);z-index:3;font-size:20px;line-height:1;color:#333}
-.sheet .scroll{overflow-y:auto;overscroll-behavior:contain;flex:1}
-.gallery{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-top:8px}
+.grab{width:40px;height:4px;border-radius:9px;background:rgba(60,36,20,.2);margin:9px auto 0;flex:none}
+.x{position:absolute!important;top:16px;inset-inline-end:16px;width:38px;height:38px;border-radius:50%;border:0;background:rgba(251,248,243,.9);z-index:3;font-size:22px;line-height:1;color:var(--ink);box-shadow:0 2px 10px rgba(0,0,0,.12)}
+.scroll{overflow-y:auto;overscroll-behavior:contain;flex:1}
+.gal-wrap{padding:10px 12px 0}
+.gallery{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:20px;background:var(--blush)}
 .gallery::-webkit-scrollbar{display:none}
-.gallery img{flex:none;width:100%;aspect-ratio:1/1;object-fit:cover;scroll-snap-align:center;background:var(--soft)}
-.dots{display:flex;justify-content:center;gap:6px;padding:8px 0 0}
-.dots span{width:6px;height:6px;border-radius:50%;background:var(--line);transition:background .2s,width .2s}
-.dots span.on{background:var(--ink);width:16px;border-radius:9px}
-.detail{padding:12px 20px 20px}
-.detail h2{font-family:"Rubik",sans-serif;font-weight:700;letter-spacing:-.02em;font-size:26px;margin:0;line-height:1.2}
-.detail .tagl{color:var(--muted);margin-top:2px}
-.pill{display:inline-block;background:var(--soft);border-radius:99px;padding:3px 12px;font-size:13px;margin-top:10px}
-.variants{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.variant{border:1.5px solid var(--line);border-radius:12px;padding:8px 12px;background:transparent;text-align:start;flex:1;min-width:130px}
-.variant[aria-pressed="true"]{border-color:var(--accent);background:var(--soft)}
-.variant b{display:block;font-size:17px}
-.variant span{font-size:13px;color:var(--muted)}
-.bigprice{font-size:28px;font-weight:700;margin-top:12px}
-.bigprice small{font-size:14px;font-weight:400;color:var(--muted)}
-h4{font-size:13px;letter-spacing:.06em;color:var(--muted);margin:20px 0 8px;font-weight:600}
+.gallery img{flex:none;width:100%;aspect-ratio:1/1;object-fit:cover;scroll-snap-align:center}
+.dots{display:flex;justify-content:center;gap:6px;padding:10px 0 0}
+.dots span{width:6px;height:6px;border-radius:9px;background:rgba(60,36,20,.18);transition:all .25s}
+.dots span.on{background:var(--ink);width:18px}
+.detail{padding:16px 22px 24px}
+.detail .en.k{font-size:13px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase}
+.detail h2{font-weight:600;font-size:27px;margin:2px 0 0;line-height:1.15;letter-spacing:-.02em}
+.detail .t{color:var(--ink-2);margin-top:4px;font-weight:300}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.pill{background:rgba(255,255,255,.75);border:1px solid var(--line);border-radius:99px;padding:5px 13px;font-size:13px}
+.variants{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.variant{border:1px solid var(--line);border-radius:16px;padding:11px 14px;background:rgba(255,255,255,.7);text-align:start;transition:all .2s}
+.variant[aria-pressed="true"]{border-color:var(--ink);background:#fff;box-shadow:inset 0 0 0 1px var(--ink)}
+.variant b{display:block;font-size:20px;font-weight:600}
+.variant span{font-size:12.5px;color:var(--muted)}
+.bigprice{font-size:32px;font-weight:600;margin-top:14px;letter-spacing:-.02em}
+.bigprice small{font-size:14px;font-weight:300;color:var(--muted)}
+.h4{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.14em;color:var(--gold);margin:26px 0 6px;font-weight:500}
+.h4::after{content:"";flex:1;height:1px;background:var(--line)}
 ul.inc{list-style:none;margin:0;padding:0}
-ul.inc li{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}
+ul.inc li{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
 ul.inc li:last-child{border:0}
-ul.inc li::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--tag);margin-top:9px}
-ul.inc li small{display:block;color:var(--muted);font-size:13px;line-height:1.4}
-.note{background:var(--soft);border-radius:12px;padding:10px 14px;font-size:14px;margin-top:14px}
-.buy{flex:none;border-top:1px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom));display:flex;gap:10px;align-items:center;background:var(--surface)}
-.qty{display:flex;align-items:center;border:1.5px solid var(--line);border-radius:14px;height:50px}
-.qty button{width:40px;height:100%;border:0;background:transparent;font-size:22px}
-.qty input{width:52px;text-align:center;border:0;background:transparent;font:inherit;font-weight:700;color:var(--ink);font-size:17px;-moz-appearance:textfield}
+ul.inc li i{flex:none;width:22px;height:22px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;margin-top:1px;color:var(--gold);font-style:normal;font-size:11px}
+ul.inc li small{display:block;color:var(--muted);font-size:13px;line-height:1.45;font-weight:300;margin-top:2px}
+.note{background:rgba(234,217,206,.55);border-radius:14px;padding:12px 16px;font-size:14px;margin-top:16px}
+.sign{display:flex;flex-direction:column;align-items:center;gap:6px;padding:30px 0 8px;color:var(--ink)}
+.sign .lg{width:78px}
+.sign span{font-size:9.5px;letter-spacing:.36em;color:var(--muted);direction:ltr}
+.buy{flex:none;border-top:1px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom));display:flex;gap:10px;align-items:center;background:rgba(251,248,243,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:16px;height:52px;background:#fff}
+.qty button{width:40px;height:100%;border:0;background:transparent;font-size:20px;color:var(--ink-2)}
+.qty input{width:50px;text-align:center;border:0;background:transparent;font:inherit;font-weight:600;color:var(--ink);font-size:17px;-moz-appearance:textfield}
 .qty input::-webkit-inner-spin-button{display:none}
-.cta{flex:1;height:50px;border:0;border-radius:14px;background:var(--accent);color:var(--accent-ink);font-weight:700;font-size:16px}
-.cta.wa{background:#1F8F4E;color:#fff;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
-.err{color:#B3261E;font-size:13px;padding:0 16px 6px;display:none}
+.cta{flex:1;height:52px;border:0;border-radius:16px;background:var(--ink);color:var(--ivory);font-weight:500;font-size:15.5px;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;box-shadow:0 8px 20px -10px rgba(60,36,20,.6)}
+.cta.wa{background:linear-gradient(135deg,#2B9B5A,#1E7B47);color:#fff}
+.err{color:#A3392B;font-size:13px;padding:0 18px 6px;display:none}
 
 /* ===== Basket bar ===== */
-.basket{position:fixed;bottom:calc(14px + env(safe-area-inset-bottom));inset-inline:16px;max-width:520px;margin:0 auto;z-index:30;background:var(--accent);color:var(--accent-ink);border:0;border-radius:18px;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;box-shadow:0 10px 30px rgba(40,25,15,.25);transform:translateY(140%);transition:transform .3s}
+.basket{position:fixed;bottom:calc(14px + env(safe-area-inset-bottom));inset-inline:14px;max-width:540px;margin:0 auto;z-index:30;background:rgba(60,36,20,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--ivory);border:0;border-radius:20px;height:62px;display:flex;align-items:center;gap:12px;padding:0 10px 0 18px;box-shadow:0 16px 40px -14px rgba(40,25,15,.6);transform:translateY(150%);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
 .basket.show{transform:none}
-.basket .n{background:var(--accent-ink);color:var(--accent);border-radius:99px;min-width:26px;height:26px;display:inline-grid;place-items:center;font-weight:700;font-size:14px;margin-inline-end:8px}
-.basket b{font-size:16px}
-.line{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);align-items:center}
-.line img{width:64px;height:64px;border-radius:10px;object-fit:cover;flex:none}
-.line .t{flex:1;min-width:0}
-.line .t b{display:block;font-family:"Rubik",sans-serif;font-weight:600;line-height:1.2}
-.line .t span{font-size:13px;color:var(--muted)}
-.line .qty{height:38px;border-radius:10px}
-.line .qty button{width:30px;font-size:18px}
-.line .qty input{width:44px;font-size:15px}
-.rm{border:0;background:transparent;color:var(--muted);font-size:13px;text-decoration:underline;padding:4px 0}
-.total{display:flex;justify-content:space-between;font-size:18px;padding:14px 0 4px;font-weight:700}
-.fine{font-size:12.5px;color:var(--muted)}
-footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 16px 110px}
+.basket .lgb{width:44px;height:44px;border-radius:50%;background:var(--ivory);display:grid;place-items:center;flex:none;color:var(--ink)}
+.basket .lgb .lg{width:30px}
+.basket .mid{flex:1;text-align:start;line-height:1.2}
+.basket .mid small{display:block;font-size:11.5px;opacity:.7;font-weight:300}
+.basket b{font-size:17px;font-weight:600}
+.basket .arr{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.12);display:grid;place-items:center}
+.line{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);align-items:center}
+.line img{width:66px;height:66px;border-radius:14px;object-fit:cover;flex:none}
+.line .tt{flex:1;min-width:0}
+.line .tt b{display:block;font-weight:500;line-height:1.2;font-size:15px}
+.line .tt span{font-size:12.5px;color:var(--muted)}
+.line .qty{height:40px;border-radius:12px}
+.line .qty button{width:30px;font-size:17px}
+.line .qty input{width:42px;font-size:15px}
+.rm{border:0;background:transparent;color:var(--muted);font-size:12.5px;text-decoration:underline;padding:4px 0}
+.total{display:flex;justify-content:space-between;font-size:19px;padding:16px 0 4px;font-weight:600}
+.fine{font-size:12.5px;color:var(--muted);font-weight:300}
+.cart-head{display:flex;align-items:center;gap:14px;padding-top:14px}
+.cart-head .lg{width:64px;color:var(--ink);flex:none}
 
-/* ===== Branding everywhere ===== */
-.lg svg{width:100%;height:auto;display:block}
-.mini{display:flex;justify-content:center;align-items:center;height:0;opacity:0;overflow:hidden;transition:height .25s,opacity .25s,margin .25s}
-.mini .lg{width:100px;color:var(--ink)}
-.bar.stuck .mini{height:68px;opacity:1;margin-bottom:6px}
-.basket .bm{width:48px;color:var(--accent-ink);flex:none}
-.basket .mid{display:flex;align-items:center;flex:1;justify-content:center}
-.sheet-brand{display:flex;flex-direction:column;align-items:center;gap:4px;padding:26px 0 6px;color:var(--ink)}
-.sheet-brand .lg{width:84px}
-.sheet-brand span{font-size:10px;letter-spacing:.28em;color:var(--muted);direction:ltr}
-.cart-head{display:flex;align-items:center;gap:12px}
-.cart-head .lg{width:62px;color:var(--ink);flex:none}
-.cta.wa .who{font-weight:400;opacity:.9}
-footer .lg{width:90px;margin:0 auto 10px;color:var(--ink)}
+/* ===== Floating social ===== */
+.fab{position:fixed;left:14px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:29;display:flex;flex-direction:column;gap:10px;transition:bottom .4s cubic-bezier(.2,.8,.2,1)}
+body.has-cart .fab{bottom:calc(90px + env(safe-area-inset-bottom))}
+.fab a{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;box-shadow:0 10px 24px -10px rgba(40,25,15,.55);text-decoration:none;transition:transform .2s}
+.fab a:active{transform:scale(.92)}
+.fab .ig{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285AEB 90%);color:#fff}
+.fab .wa{background:#25D366;color:#fff}
+.fab .lbl{position:absolute;left:62px;white-space:nowrap;background:var(--glass-strong);border:1px solid var(--line);border-radius:99px;padding:4px 10px;font-size:12px;color:var(--ink);opacity:0;pointer-events:none;transition:opacity .2s}
+@media(hover:hover){.fab a:hover .lbl{opacity:1}}
+.fab a{position:relative}
+
+/* ===== Footer ===== */
+footer{text-align:center;padding:50px 18px 140px;color:var(--ink-2)}
+footer .lg{width:120px;margin:0 auto;color:var(--ink)}
+footer .tag{font-size:10px;letter-spacing:.4em;color:var(--muted);margin:10px 0 22px;direction:ltr}
+footer .links{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+footer .links a{display:inline-flex;align-items:center;gap:7px;text-decoration:none;background:var(--glass-strong);border:1px solid var(--line);border-radius:99px;padding:10px 16px;font-size:14px}
+footer .fine{margin-top:22px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.card{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 
-<header class="hero" style="position:relative">
-  <div class="palette" role="group" aria-label="פלטת צבעים">
-    <button class="p-natural" data-set-theme="natural" aria-label="פלטה טבעית" aria-pressed="true"></button>
-    <button class="p-bordeaux" data-set-theme="bordeaux" aria-label="פלטת בורדו" aria-pressed="false"></button>
+<header class="hero">
+  <div class="lg" data-logo></div>
+  <div class="tag">EVENT BRANDING &amp; GIFTING</div>
+  <div class="rule"><span class="en">Collection 2026</span></div>
+  <h1>קטלוג<b>מארזים</b></h1>
+  <p>מארזי מתנה ממותגים, בעיצוב אישי ובהקדשה אישית — לכל אירוע.</p>
+  <a class="go" href="#catalog">לצפייה במארזים
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+  <div class="scroll" aria-hidden="true"></div>
+</header>
+
+<div class="bar" id="bar">
+  <div class="wrap">
+    <div class="bar-top">
+      <button class="icon-btn" id="searchBtn" aria-label="חיפוש"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      <a href="#top" class="lg" data-logo aria-label="OR Design Studio — לראש העמוד" onclick="scrollTo({top:0,behavior:'smooth'});return false"></a>
+      <button class="icon-btn" id="bagBtn" aria-label="הרשימה שלי"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="n" id="bagN"></span></button>
+    </div>
+    <div class="search" id="search"><label><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" opacity=".5"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="מה מחפשים? פמוטים, הבדלה, נר…" autocomplete="off"></label></div>
+    <div class="cols" id="cols"></div>
   </div>
-  <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" viewBox="89 140 323 220" role="img" aria-label="OR Design Studio">
+</div>
+
+<main class="wrap" id="catalog">
+  <div class="sort"><span id="count"></span>
+    <select id="sort" aria-label="מיון"><option value="">לפי קולקציה</option><option value="asc">מחיר: מהנמוך</option><option value="desc">מחיר: מהגבוה</option><option value="min">מינימום יחידות נמוך</option></select>
+  </div>
+  <div id="list"></div>
+</main>
+
+<footer>
+  <div class="lg" data-logo></div>
+  <div class="tag">EVENT BRANDING &amp; GIFTING</div>
+  <div class="links">
+    <a id="waFoot" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="#1E7B47"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Z"/></svg>וואטסאפ</a>
+    <a href="https://www.instagram.com/or.design_studio/" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg><span class="en" style="font-family:var(--sans)">@or.design_studio</span></a>
+  </div>
+  <p class="fine">המחירים ליחידה · התמונות להמחשה · © OR Design Studio 2026</p>
+</footer>
+
+<button class="basket" id="basketBar" aria-label="פתיחת הרשימה שלי">
+  <span class="lgb"><span class="lg" data-logo></span></span>
+  <span class="mid"><small>הרשימה שלי · <span id="bN">0</span> מארזים</small><b id="bT">₪0</b></span>
+  <span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></span>
+</button>
+
+<div class="fab" aria-label="צרו קשר">
+  <a class="ig" href="https://www.instagram.com/or.design_studio/" target="_blank" rel="noopener" aria-label="OR Design באינסטגרם"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg><span class="lbl">@or.design_studio</span></a>
+  <a class="wa" id="waFab" target="_blank" rel="noopener" aria-label="וואטסאפ ל־OR Design"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg><span class="lbl">וואטסאפ</span></a>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="פרטי מארז"></section>
+
+<template id="logoTpl"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" viewBox="89 140 323 220" role="img" aria-label="OR Design Studio">
 <defs>
 <clipPath id="clip_1">
 <path transform="matrix(1,0,0,-1,0,500)" d="M0 0H500V500H0Z"/>
@@ -176,42 +290,11 @@ footer .lg{width:90px;margin:0 auto 10px;color:var(--ink)}
 <path transform="matrix(1,0,0,-1,0,500)" d="M280.9181 232.675C280.8281 232.665 280.7381 232.665 280.6481 232.665 275.7781 232.665 272.5281 236.605 272.5281 242.465 272.5281 248.355 275.7781 252.265 280.6181 252.265 281.0081 252.265 281.3981 252.245 281.7681 252.185 283.4181 251.975 284.8581 251.285 286.0181 250.125 287.7581 248.415 288.6881 245.745 288.6881 242.525 288.6881 236.575 285.6881 232.805 280.9181 232.675M281.7081 253.585C281.3481 253.615 280.9881 253.635 280.6181 253.635 274.7581 253.635 270.9881 249.255 270.9881 242.435 270.9881 235.595 274.7381 231.265 280.6181 231.265H280.7381C286.5581 231.325 290.2481 235.645 290.2481 242.435 290.2481 248.855 286.9681 253.075 281.7081 253.585" fill="currentColor"/>
 <path transform="matrix(1,0,0,-1,0,500)" d="M280.9181 232.675C280.8281 232.665 280.7381 232.665 280.6481 232.665 275.7781 232.665 272.5281 236.605 272.5281 242.465 272.5281 248.355 275.7781 252.265 280.6181 252.265 281.0081 252.265 281.3981 252.245 281.7681 252.185 283.4181 251.975 284.8581 251.285 286.0181 250.125 287.7581 248.415 288.6881 245.745 288.6881 242.525 288.6881 236.575 285.6881 232.805 280.9181 232.675M281.7081 253.585C281.3481 253.615 280.9881 253.635 280.6181 253.635 274.7581 253.635 270.9881 249.255 270.9881 242.435 270.9881 235.595 274.7381 231.265 280.6181 231.265H280.7381C286.5581 231.325 290.2481 235.645 290.2481 242.435 290.2481 248.855 286.9681 253.075 281.7081 253.585" fill="currentColor"/>
 </g>
-</svg>
-</div>
-  <div class="tagline">EVENT BRANDING &amp; GIFTING</div>
-  <h1>קטלוג מארזים 2026</h1>
-  <p class="sub">מארזי מתנה ממותגים עם הקדשה אישית לכל אירוע</p>
-</header>
-
-<div class="bar">
-  <div class="wrap">
-    <div class="mini"><div class="lg" data-logo></div></div>
-    <label class="search">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input id="q" type="search" placeholder="חיפוש: פמוטים, הבדלה, נר…" autocomplete="off">
-    </label>
-    <div class="chips" id="chips"></div>
-    <div class="meta"><span id="count"></span>
-      <label>מיון: <select id="sort"><option value="">מומלץ</option><option value="asc">מחיר: מהנמוך</option><option value="desc">מחיר: מהגבוה</option><option value="min">מינימום נמוך</option></select></label>
-    </div>
-  </div>
-</div>
-
-<main class="wrap"><div class="grid" id="grid"></div></main>
-<footer><div class="lg" data-logo></div>המחירים ליחידה וכוללים הקדשה אישית היכן שמצוין · התמונות להמחשה<br>© OR Design Studio</footer>
-
-<button class="basket" id="basketBar" aria-label="פתיחת רשימת ההזמנה">
-  <span class="lg bm" data-logo></span>
-  <span class="mid"><span class="n" id="bN">0</span>הרשימה שלי</span>
-  <b id="bT">₪0</b>
-</button>
-
-<div class="scrim" id="scrim"></div>
-<section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="פרטי מארז"></section>
+</svg></template>
 
 <script>
-/* ======= הגדרות — לעדכן ======= */
-const WHATSAPP = "972528733832"; // מספר וואטסאפ בפורמט בינלאומי, למשל "972501234567"
+/* ======= הגדרות ======= */
+const WHATSAPP = "972528733832";
 
 /* ======= נתוני המארזים ======= */
 const BR = ["ברכון מעוצב עם הקדשה אישית","סדר הדלקת נרות | הפרשת חלה | ברכת המזון | מזמור לתודה (מתוך מגוון דגמים)"];
@@ -257,6 +340,15 @@ const P = [
  {id:"acrylic-custom",name:"אקריליק בעיצוב אישי",tag:"לפי צורה לבחירה",cat:"מזכרות ומיתוג",min:40,v:[["",null]],img:["p20_3"],inc:["אקריליק מעוצב אישית לפי צורה","גדיל","עטוף בצלופן ופפיון","אפשר להוסיף ברכה לבחירה"],note:"הצעת מחיר לפי כמות וצורה"}
 ];
 
+
+const META = {
+  "ברכונים":{en:"Blessings",img:"p01_1"},
+  "פמוטים ונרות":{en:"Candlesticks",img:"p07_0"},
+  "שבת והבדלה":{en:"Shabbat & Havdalah",img:"p16_0"},
+  "נרות עבודת יד":{en:"Handmade Candles",img:"p14_1"},
+  "מזכרות ומיתוג":{en:"Keepsakes",img:"p20_0"}
+};
+
 /* ======= עזרים ======= */
 const $ = s => document.querySelector(s);
 const fmt = n => n==null ? "הצעת מחיר" : "₪" + (Number.isInteger(n)?n:n.toFixed(1));
@@ -264,123 +356,135 @@ const src = n => "img/" + n + ".jpg";
 const fromPrice = p => Math.min(...p.v.map(x=>x[1] ?? Infinity));
 const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const store = {get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
-
-/* ======= לוגו בכל מקום ======= */
-const LOGO = document.querySelector(".logo svg").outerHTML;
-const logoIn = root => root.querySelectorAll("[data-logo]").forEach(el=>{if(!el.firstChild)el.innerHTML=LOGO});
+const LOGO = $("#logoTpl").innerHTML;
+const logoIn = root => root.querySelectorAll("[data-logo]").forEach(el=>{if(!el.firstElementChild)el.innerHTML=LOGO});
+const waLink = t => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(t)}`;
+const waIcon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>`;
+P.forEach((p,i)=>p.n=String(i+1).padStart(2,"0"));
 logoIn(document);
-const brandHTML = `<div class="sheet-brand"><div class="lg" data-logo></div><span>EVENT BRANDING &amp; GIFTING</span></div>`;
-// לוגו קטן בפס העליון כשגוללים מתחת ללוגו הגדול
-new IntersectionObserver(([e])=>document.querySelector(".bar").classList.toggle("stuck",!e.isIntersecting),{threshold:0}).observe(document.querySelector(".logo"));
-
-/* ======= פלטה ======= */
-function setTheme(t){document.documentElement.dataset.theme=t;document.querySelectorAll("[data-set-theme]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.setTheme===t));document.querySelector('meta[name=theme-color]').content=getComputedStyle(document.documentElement).getPropertyValue("--bg").trim();store.set("or-theme",t)}
-document.querySelectorAll("[data-set-theme]").forEach(b=>b.onclick=()=>setTheme(b.dataset.setTheme));
-setTheme(new URLSearchParams(location.search).get("theme")||store.get("or-theme","natural"));
+$("#waFab").href = $("#waFoot").href = waLink("היי OR Design Studio! ראיתי את הקטלוג ואשמח לפרטים 🤍");
 
 /* ======= מצב ======= */
 let cat="הכל", q="", sort="";
-let cart = store.get("or-cart",[]); // [{id,vi,qty}]
+let cart = store.get("or-cart",[]);
 
-/* ======= קטגוריות ======= */
-$("#chips").innerHTML = CATS.map(c=>`<button class="chip" aria-pressed="${c===cat}" data-c="${c}">${c}</button>`).join("");
-$("#chips").onclick = e=>{const b=e.target.closest(".chip");if(!b)return;cat=b.dataset.c;document.querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed",x===b));render()};
+/* ======= קולקציות ======= */
+$("#cols").innerHTML = CATS.map(c=>`<button class="col" data-c="${c}" aria-pressed="${c===cat}"><span class="ring">${c==="הכל"?`<span class="lgc"><span class="lg" data-logo></span></span>`:`<img src="${src(META[c].img)}" alt="">`}</span><span>${c}</span></button>`).join("");
+logoIn($("#cols"));
+$("#cols").onclick = e=>{const b=e.target.closest(".col");if(!b)return;cat=b.dataset.c;document.querySelectorAll(".col").forEach(x=>x.setAttribute("aria-pressed",x===b));render();
+  const top=$("#catalog").getBoundingClientRect().top+scrollY-$("#bar").offsetHeight; if(scrollY>top) scrollTo({top,behavior:"smooth"})};
+$("#searchBtn").onclick=()=>{const s=$("#search");s.classList.toggle("open");if(s.classList.contains("open"))setTimeout(()=>$("#q").focus(),250)};
 $("#q").oninput = e=>{q=e.target.value.trim();render()};
 $("#sort").onchange = e=>{sort=e.target.value;render()};
+$("#bagBtn").onclick=()=>cart.length?openCart():null;
 
-/* ======= גריד ======= */
-function render(){
-  let list = P.filter(p=>(cat==="הכל"||p.cat===cat) && (!q || (p.name+" "+p.tag+" "+p.inc.flat().join(" ")).includes(q)));
-  if(sort==="asc") list.sort((a,b)=>fromPrice(a)-fromPrice(b));
-  if(sort==="desc") list.sort((a,b)=>(fromPrice(b)===Infinity?-1:fromPrice(b))-(fromPrice(a)===Infinity?-1:fromPrice(a)));
-  if(sort==="min") list.sort((a,b)=>(a.min??0)-(b.min??0));
-  $("#count").textContent = list.length + " מארזים";
-  $("#grid").innerHTML = list.length ? list.map(p=>{
-    const n = cart.filter(c=>c.id===p.id).reduce((s,c)=>s+c.qty,0);
-    const fp = fromPrice(p);
-    return `<button class="card" data-id="${p.id}">
-      <div class="ph"><img src="${src(p.img[0])}" alt="${esc(p.name)}" loading="lazy">${p.img.length>1?`<span class="count">${p.img.length} תמונות</span>`:""}${n?`<span class="in">✓ ${n} ברשימה</span>`:""}</div>
-      <div class="body"><h3>${esc(p.name)}</h3><div class="tagl">${esc(p.tag)}</div>
-      <div class="row"><span class="price">${fp===Infinity?'<small>הצעת מחיר</small>':(p.v.length>1?'<small>החל מ־</small>':'')+(fp===Infinity?'':fmt(fp))}</span>${p.min?`<span class="min">מינ׳ ${p.min}</span>`:""}</div></div></button>`}).join("")
-    : `<div class="empty">לא נמצאו מארזים. נסו מילה אחרת 🙂</div>`;
+/* ======= רינדור ======= */
+function card(p){
+  const n=cart.filter(c=>c.id===p.id).reduce((s,c)=>s+c.qty,0), fp=fromPrice(p);
+  return `<button class="card" data-id="${p.id}">
+    <div class="ph"><img src="${src(p.img[0])}" alt="${esc(p.name)}" loading="lazy" decoding="async"><span class="num en">${p.n}</span>
+      ${p.img.length>1?`<span class="multi"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="14" height="14" rx="3"/><path d="M21 7v12a2 2 0 0 1-2 2H7"/></svg>${p.img.length}</span>`:""}
+      ${n?`<span class="inlist">✓ ${n} ברשימה</span>`:""}</div>
+    <div class="body"><h3>${esc(p.name)}</h3><div class="t">${esc(p.tag)}</div>
+      <div class="row">${fp===Infinity?`<span class="price q">הצעת מחיר</span>`:`<span class="price">${p.v.length>1?"<small>החל מ־</small>":""}${fmt(fp)}</span>`}${p.min?`<span class="min">מינ׳ ${p.min} יח׳</span>`:""}</div></div></button>`;
 }
-$("#grid").onclick = e=>{const c=e.target.closest(".card");if(c)openProduct(c.dataset.id)};
+function render(){
+  let list=P.filter(p=>(cat==="הכל"||p.cat===cat)&&(!q||(p.name+" "+p.tag+" "+p.inc.flat().join(" ")).includes(q)));
+  const k=p=>fromPrice(p)===Infinity?1e9:fromPrice(p);
+  if(sort==="asc")list.sort((a,b)=>k(a)-k(b));
+  if(sort==="desc")list.sort((a,b)=>(k(b)%1e9)-(k(a)%1e9));
+  if(sort==="min")list.sort((a,b)=>(a.min??0)-(b.min??0));
+  $("#count").textContent=list.length+" מארזים";
+  let html="";
+  if(!list.length) html=`<div class="grid"><div class="empty">לא נמצאו מארזים — נסו מילה אחרת 🤍</div></div>`;
+  else if(!sort&&!q){
+    const groups=(cat==="הכל"?CATS.slice(1):[cat]);
+    groups.forEach((g,gi)=>{const items=list.filter(p=>p.cat===g);if(!items.length)return;
+      html+=`<section><div class="sec-h"><div><span class="en">${String(CATS.indexOf(g)).padStart(2,"0")} — ${META[g].en}</span><h2>${g}</h2></div><span class="c">${items.length} מארזים</span></div><div class="grid">${items.map(card).join("")}</div></section>`});
+  } else html=`<div class="grid" style="margin-top:16px">${list.map(card).join("")}</div>`;
+  $("#list").innerHTML=html;
+  reveal();
+}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{rootMargin:"0px 0px -6% 0px"});
+function reveal(){document.querySelectorAll(".card:not(.in)").forEach((c,i)=>{c.style.transitionDelay=(i%2)*60+"ms";io.observe(c)})}
+$("#list").onclick=e=>{const c=e.target.closest(".card");if(c)openProduct(c.dataset.id)};
+new IntersectionObserver(([e])=>$("#bar").classList.toggle("stuck",!e.isIntersecting)).observe($(".hero .go"));
 
 /* ======= חלונית ======= */
 const sheet=$("#sheet"), scrim=$("#scrim");
-function openSheet(html){const was=sheet.classList.contains("open");sheet.innerHTML=`<div class="grab"></div><button class="x" aria-label="סגירה">×</button>`+html;sheet.classList.add("open");scrim.classList.add("open");document.body.style.overflow="hidden";sheet.querySelector(".x").onclick=closeSheet;logoIn(sheet);if(!was)history.pushState({s:1},"")}
+function openSheet(html){const was=sheet.classList.contains("open");sheet.innerHTML=`<div class="grab"></div><button class="x" aria-label="סגירה">×</button>`+html;logoIn(sheet);sheet.classList.add("open");scrim.classList.add("open");document.body.style.overflow="hidden";sheet.querySelector(".x").onclick=closeSheet;if(!was)history.pushState({s:1},"")}
 function closeSheet(fromPop){if(!sheet.classList.contains("open"))return;sheet.classList.remove("open");scrim.classList.remove("open");document.body.style.overflow="";if(fromPop!==true&&history.state&&history.state.s)history.back()}
 scrim.onclick=closeSheet;
 addEventListener("popstate",()=>closeSheet(true));
 addEventListener("keydown",e=>{if(e.key==="Escape")closeSheet()});
-// סגירה בגרירה למטה
-let sy=null;sheet.addEventListener("touchstart",e=>{const sc=sheet.querySelector(".scroll");if(!sc||sc.scrollTop<=0)sy=e.touches[0].clientY},{passive:true});
-sheet.addEventListener("touchmove",e=>{if(sy==null)return;const d=e.touches[0].clientY-sy;if(d>0&&!e.target.closest(".gallery"))sheet.style.transform=`translateY(${d}px)`},{passive:true});
+let sy=null;
+sheet.addEventListener("touchstart",e=>{const sc=sheet.querySelector(".scroll");if(!e.target.closest(".gallery")&&(!sc||sc.scrollTop<=0))sy=e.touches[0].clientY},{passive:true});
+sheet.addEventListener("touchmove",e=>{if(sy==null)return;const d=e.touches[0].clientY-sy;if(d>0)sheet.style.transform=`translateY(${d}px)`},{passive:true});
 sheet.addEventListener("touchend",e=>{if(sy==null)return;const d=e.changedTouches[0].clientY-sy;sheet.style.transform="";sy=null;if(d>110)closeSheet()});
-
-function incHTML(p){return p.inc.map(i=>Array.isArray(i)?`<li><div>${esc(i[0])}${i[1]?`<small>${esc(i[1])}</small>`:""}</div></li>`:`<li><div>${esc(i)}</div></li>`).join("")}
+const sign=`<div class="sign"><span class="lg" data-logo></span><span>EVENT BRANDING &amp; GIFTING</span></div>`;
+const incHTML=p=>p.inc.map(i=>{const [a,b]=Array.isArray(i)?i:[i,""];return `<li><i>✓</i><div>${esc(a)}${b?`<small>${esc(b)}</small>`:""}</div></li>`}).join("");
 
 function openProduct(id){
   const p=P.find(x=>x.id===id); let vi=0;
   const minQ=p.min||1, quote=p.v[0][1]==null;
   openSheet(`<div class="scroll">
-    <div class="gallery" id="gal">${p.img.map(i=>`<img src="${src(i)}" alt="${esc(p.name)}">`).join("")}</div>
+    <div class="gal-wrap"><div class="gallery" id="gal">${p.img.map(i=>`<img src="${src(i)}" alt="${esc(p.name)}">`).join("")}</div></div>
     ${p.img.length>1?`<div class="dots" id="dots">${p.img.map((_,i)=>`<span class="${i?"":"on"}"></span>`).join("")}</div>`:""}
     <div class="detail">
-      <h2>${esc(p.name)}</h2><div class="tagl">${esc(p.tag)}</div>
-      ${p.min?`<span class="pill">מינימום ${p.min} יחידות</span>`:""}
+      <span class="en k">${p.n} · ${META[p.cat].en}</span>
+      <h2>${esc(p.name)}</h2><div class="t">${esc(p.tag)}</div>
+      <div class="pills">${p.min?`<span class="pill">מינימום ${p.min} יחידות</span>`:""}<span class="pill">${p.cat}</span></div>
       ${p.v.length>1?`<div class="variants" id="vars">${p.v.map((v,i)=>`<button class="variant" data-i="${i}" aria-pressed="${i===0}"><b>${fmt(v[1])}</b><span>${esc(v[0])}</span></button>`).join("")}</div>`
         :`<div class="bigprice">${fmt(p.v[0][1])} ${quote?"":"<small>ליחידה</small>"}</div>`}
-      <h4>מה כולל המארז</h4><ul class="inc">${incHTML(p)}</ul>
-      ${p.note?`<div class="note">💡 ${esc(p.note)}</div>`:""}
-      ${brandHTML}
+      <div class="h4">מה כולל המארז</div><ul class="inc">${incHTML(p)}</ul>
+      ${p.note?`<div class="note">✦ ${esc(p.note)}</div>`:""}
+      ${sign}
     </div></div>
     <div class="err" id="err">הכמות המינימלית למארז זה היא ${minQ} יחידות</div>
-    ${quote?`<div class="buy"><a class="cta wa" href="${waLink(`היי, אשמח להצעת מחיר על ${p.name}`)}" target="_blank" rel="noopener">${waIcon}הצעת מחיר מ־OR Design</a></div>`
-    :`<div class="buy"><div class="qty"><button data-d="1" aria-label="הוספה">+</button><input id="qn" type="number" inputmode="numeric" value="${minQ}" min="${minQ}" aria-label="כמות"><button data-d="-1" aria-label="הפחתה">−</button></div><button class="cta" id="add">הוספה · <span id="sum"></span></button></div>`}`);
-  const gal=$("#gal"), dots=$("#dots");
-  if(dots) gal.addEventListener("scroll",()=>{const i=Math.round(Math.abs(gal.scrollLeft)/gal.clientWidth);dots.querySelectorAll("span").forEach((s,k)=>s.classList.toggle("on",k===i))},{passive:true});
-  if(quote) return;
-  const qn=$("#qn"), upd=()=>{const n=+qn.value||0;$("#sum").textContent=fmt(Math.round(n*p.v[vi][1]*10)/10);$("#err").style.display=n<minQ?"block":"none"};
-  sheet.querySelectorAll(".qty button").forEach(b=>b.onclick=()=>{qn.value=Math.max(minQ,(+qn.value||0)+ +b.dataset.d*(minQ>=10?1:1));upd()});
+    ${quote?`<div class="buy"><a class="cta wa" href="${waLink(`היי OR Design Studio! אשמח להצעת מחיר על ${p.name} 🤍`)}" target="_blank" rel="noopener">${waIcon}הצעת מחיר מ־OR Design</a></div>`
+    :`<div class="buy"><div class="qty"><button data-d="1" aria-label="הוספה">+</button><input id="qn" type="number" inputmode="numeric" value="${minQ}" min="${minQ}" aria-label="כמות"><button data-d="-1" aria-label="הפחתה">−</button></div><button class="cta" id="add">הוספה לרשימה · <span id="sum"></span></button></div>`}`);
+  const gal=$("#gal"),dots=$("#dots");
+  if(dots)gal.addEventListener("scroll",()=>{const i=Math.round(Math.abs(gal.scrollLeft)/gal.clientWidth);dots.querySelectorAll("span").forEach((s,k)=>s.classList.toggle("on",k===i))},{passive:true});
+  if(quote)return;
+  const qn=$("#qn"),upd=()=>{const n=+qn.value||0;$("#sum").textContent=fmt(Math.round(n*p.v[vi][1]*10)/10);$("#err").style.display=n<minQ?"block":"none"};
+  sheet.querySelectorAll(".qty button").forEach(b=>b.onclick=()=>{qn.value=Math.max(minQ,(+qn.value||0)+ +b.dataset.d);upd()});
   qn.oninput=upd;
-  const vars=$("#vars"); if(vars) vars.onclick=e=>{const b=e.target.closest(".variant");if(!b)return;vi=+b.dataset.i;vars.querySelectorAll(".variant").forEach(x=>x.setAttribute("aria-pressed",x===b));upd()};
+  const vars=$("#vars");if(vars)vars.onclick=e=>{const b=e.target.closest(".variant");if(!b)return;vi=+b.dataset.i;vars.querySelectorAll(".variant").forEach(x=>x.setAttribute("aria-pressed",x===b));upd()};
   $("#add").onclick=()=>{const n=+qn.value||0;if(n<minQ){$("#err").style.display="block";return}
-    const ex=cart.find(c=>c.id===p.id&&c.vi===vi); if(ex) ex.qty=n; else cart.push({id:p.id,vi,qty:n});
-    saveCart();closeSheet()};
+    const ex=cart.find(c=>c.id===p.id&&c.vi===vi);if(ex)ex.qty=n;else cart.push({id:p.id,vi,qty:n});saveCart();closeSheet()};
   upd();
 }
 
-/* ======= רשימת הזמנה ======= */
+/* ======= הרשימה שלי ======= */
 const lineTotal=c=>{const p=P.find(x=>x.id===c.id);return c.qty*p.v[c.vi][1]};
+const r1=n=>Math.round(n*10)/10;
 function saveCart(){cart=cart.filter(c=>P.find(x=>x.id===c.id));store.set("or-cart",cart);
-  const n=cart.length, t=cart.reduce((s,c)=>s+lineTotal(c),0);
-  $("#bN").textContent=n;$("#bT").textContent=fmt(Math.round(t*10)/10);$("#basketBar").classList.toggle("show",n>0);render()}
+  const n=cart.length,t=cart.reduce((s,c)=>s+lineTotal(c),0);
+  $("#bN").textContent=n;$("#bT").textContent=fmt(r1(t));$("#bagN").textContent=n||"";$("#basketBar").classList.toggle("show",n>0);document.body.classList.toggle("has-cart",n>0);render()}
 function cartText(){
-  const lines=cart.map(c=>{const p=P.find(x=>x.id===c.id),v=p.v[c.vi];return `• ${p.name}${v[0]?` (${v[0]})`:""} — ${c.qty} יח׳ × ${fmt(v[1])} = ${fmt(Math.round(lineTotal(c)*10)/10)}`});
-  const t=cart.reduce((s,c)=>s+lineTotal(c),0);
-  return `היי OR Design Studio! אשמח להזמין מהקטלוג:\n${lines.join("\n")}\n\nסה״כ משוער: ${fmt(Math.round(t*10)/10)}\n\nתאריך האירוע: \nנוסח ההקדשה: `;
+  const lines=cart.map(c=>{const p=P.find(x=>x.id===c.id),v=p.v[c.vi];return `• ${p.name}${v[0]?` (${v[0]})`:""} — ${c.qty} יח׳ × ${fmt(v[1])} = ${fmt(r1(lineTotal(c)))}`});
+  return `היי OR Design Studio! 🤍 אשמח להזמין מהקטלוג:\n${lines.join("\n")}\n\nסה״כ משוער: ${fmt(r1(cart.reduce((s,c)=>s+lineTotal(c),0)))}\n\nתאריך האירוע: \nנוסח ההקדשה: `;
 }
-const waIcon=`<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>`;
-const waLink=t=>`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(t)}`;
 function openCart(){
-  if(!cart.length) return;
+  if(!cart.length)return;
   const t=cart.reduce((s,c)=>s+lineTotal(c),0);
-  openSheet(`<div class="scroll"><div class="detail" style="padding-top:18px">
-    <div class="cart-head"><div class="lg" data-logo></div><div><h2>הרשימה שלי</h2><p class="fine" style="margin:2px 0 6px">שולחים את הרשימה ל־OR Design בוואטסאפ ומקבלים אישור והצעה סופית.</p></div></div>
-    ${cart.map((c,i)=>{const p=P.find(x=>x.id===c.id),v=p.v[c.vi];return `<div class="line" data-i="${i}"><img src="${src(p.img[0])}" alt=""><div class="t"><b>${esc(p.name)}</b><span>${v[0]?esc(v[0])+" · ":""}${fmt(v[1])} ליח׳ · ${fmt(Math.round(lineTotal(c)*10)/10)}</span><br><button class="rm" data-rm="${i}">הסרה</button></div>
-      <div class="qty"><button data-q="1">+</button><input type="number" inputmode="numeric" value="${c.qty}" data-in="${i}" aria-label="כמות"><button data-q="-1">−</button></div></div>`}).join("")}
-    <div class="total"><span>סה״כ משוער</span><span>${fmt(Math.round(t*10)/10)}</span></div>
-    <p class="fine">המחיר סופי לאחר אישור. ייתכנו תוספות (גפרורים ממותגים, משלוח).</p>
+  openSheet(`<div class="scroll"><div class="detail">
+    <div class="cart-head"><span class="lg" data-logo></span><div><span class="en k" style="font-size:13px;letter-spacing:.22em;color:var(--gold)">YOUR SELECTION</span><h2 style="margin:0">הרשימה שלי</h2></div></div>
+    <p class="fine" style="margin:10px 0 4px">שולחים את הרשימה ל־OR Design בוואטסאפ ומקבלים אישור והצעה סופית.</p>
+    ${cart.map((c,i)=>{const p=P.find(x=>x.id===c.id),v=p.v[c.vi];return `<div class="line" data-i="${i}"><img src="${src(p.img[0])}" alt=""><div class="tt"><b>${esc(p.name)}</b><span>${v[0]?esc(v[0])+" · ":""}${fmt(v[1])} ליח׳ · ${fmt(r1(lineTotal(c)))}</span><br><button class="rm" data-rm>הסרה</button></div>
+      <div class="qty"><button data-q="1">+</button><input type="number" inputmode="numeric" value="${c.qty}" aria-label="כמות"><button data-q="-1">−</button></div></div>`}).join("")}
+    <div class="total"><span>סה״כ משוער</span><span>${fmt(r1(t))}</span></div>
+    <p class="fine">המחיר הסופי לאחר אישור. ייתכנו תוספות (גפרורים ממותגים, משלוח).</p>
+    ${sign}
   </div></div>
-  <div class="buy"><a class="cta wa" id="send" href="${waLink(cartText())}" target="_blank" rel="noopener">${waIcon}שליחה ל־OR Design <span class="who">בוואטסאפ</span></a></div>`);
+  <div class="buy"><a class="cta wa" id="send" href="${waLink(cartText())}" target="_blank" rel="noopener">${waIcon}שליחה ל־OR Design בוואטסאפ</a></div>`);
   sheet.querySelectorAll(".line").forEach(row=>{const i=+row.dataset.i,c=cart[i],p=P.find(x=>x.id===c.id),m=p.min||1,inp=row.querySelector("input");
-    const set=n=>{c.qty=Math.max(m,n);store.set("or-cart",cart);reopen()};
+    const set=n=>{c.qty=Math.max(m,n);saveCart();keepScroll(openCart)};
     row.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>set(c.qty+ +b.dataset.q));
     inp.onchange=()=>set(+inp.value||m);
-    row.querySelector("[data-rm]").onclick=()=>{cart.splice(i,1);saveCart();cart.length?reopen():closeSheet()};});
+    row.querySelector("[data-rm]").onclick=()=>{cart.splice(i,1);saveCart();cart.length?keepScroll(openCart):closeSheet()}});
 }
-function reopen(){saveCart();const y=sheet.querySelector(".scroll")?.scrollTop||0;openCart();sheet.querySelector(".scroll").scrollTop=y}
+function keepScroll(fn){const y=sheet.querySelector(".scroll")?.scrollTop||0;fn();const s=sheet.querySelector(".scroll");if(s)s.scrollTop=y}
 $("#basketBar").onclick=openCart;
 
 saveCart();
